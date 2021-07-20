@@ -1,0 +1,1 @@
+export const GET_OMISE_QR = "GET_OMISE_QR";
