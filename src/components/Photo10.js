@@ -5,6 +5,8 @@ import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import { getOmiseQR } from "../actions/getQRimage";
 import Button from "@material-ui/core/Button";
 import Link from "@material-ui/core/Link";
+import { css } from "@emotion/react";
+import ClipLoader from "react-spinners/ClipLoader";
 
 function Photo10() {
   const postRequestStateObject = useSelector(
@@ -18,9 +20,11 @@ function Photo10() {
   const dollarAmount = "$" + amount / 100;
 
   useEffect(() => {
-    dispatch(getOmiseQR(amount));
+    setTimeout(function() {
+      dispatch(getOmiseQR(amount));
+    }, 5000);
     console.log("Only render on first render");
-    console.log("SSE end point is: " + postRequestStateObject.sseEndpoint);
+    //console.log("SSE end point is: " + postRequestStateObject.information[0].sseEndpoint);
   }, []);
 
   const [data, updateData] = useState("Pending payment...");
@@ -29,14 +33,18 @@ function Photo10() {
   useEffect(() => {
     if (isInitialMount.current) {
       isInitialMount.current = false;
+      console.log("before here");
+      console.log(isInitialMount.current.toString());
     } else {
+      console.log(isInitialMount.current.toString());
       console.log("sseEndPoint changed");
-      console.log("SSE end point is: " + postRequestStateObject.sseEndpoint);
+      console.log("SSE end point is: " + postRequestStateObject.information[0].sseEndpoint);
 
-      const source = new EventSource(postRequestStateObject.sseEndpoint);
+      const source = new EventSource(postRequestStateObject.information[0].sseEndpoint);
       source.onmessage = function logEvents(event) {
         updateData(event.data);
         history.push("/paymentsuccess");
+        isInitialMount.current = true;
       };
     }
   });
@@ -59,32 +67,49 @@ function Photo10() {
     );
   };
 
+  const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
+let [color, setColor] = useState("#ffffff");
+
   return (
     <div>
       <p>Photo</p>
       <p>Paying amount: {dollarAmount}</p>
-      <p>{postRequestStateObject.chargeID}</p>
-      <p>{postRequestStateObject.sseEndpoint}</p>
-      <img src={postRequestStateObject.imageURL} />
 
-      <CountdownCircleTimer
-        onComplete={() => {
-          // do your stuff here
-          {
-            //history.push("/");
-          }
-          return [true, 1500]; // repeat animation in 1.5 seconds
-        }}
-        isPlaying
-        duration={10}
-        colors={[
-          ["#004777", 0.33],
-          ["#F7B801", 0.33],
-          ["#A30000", 0.33],
-        ]}
-      >
-        {renderTime}
-      </CountdownCircleTimer>
+      {postRequestStateObject.isLoading ? (
+        <ClipLoader color={color} css={override} size={150} />
+      ) : (
+        postRequestStateObject.information[0] && (
+          <div>
+            <p>{postRequestStateObject.information[0].chargeID}</p>
+            <p>{postRequestStateObject.information[0].sseEndpoint}</p>
+            <p>{postRequestStateObject.isLoading.toString()}</p>
+            <img src={postRequestStateObject.information[0].imageURL} />
+
+            <CountdownCircleTimer
+              onComplete={() => {
+                // do your stuff here
+                {
+                  //history.push("/");
+                }
+                return [true, 1500]; // repeat animation in 1.5 seconds
+              }}
+              isPlaying
+              duration={10}
+              colors={[
+                ["#004777", 0.33],
+                ["#F7B801", 0.33],
+                ["#A30000", 0.33],
+              ]}
+            >
+              {renderTime}
+            </CountdownCircleTimer>
+          </div>
+        )
+      )}
 
       <div>{data}</div>
       <Button variant="contained" color="primary">
