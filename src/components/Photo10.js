@@ -20,14 +20,16 @@ function Photo10() {
   const dollarAmount = "$" + amount / 100;
 
   useEffect(() => {
-    setTimeout(function() {
+    setTimeout(function () {
       dispatch(getOmiseQR(amount));
-    }, 5000);
+    }, 2000);
+    console.log(history.length);
     console.log("Only render on first render");
     //console.log("SSE end point is: " + postRequestStateObject.information[0].sseEndpoint);
   }, []);
 
   const [data, updateData] = useState("Pending payment...");
+  let sseSource = {};
 
   const isInitialMount = useRef(true);
   useEffect(() => {
@@ -37,12 +39,19 @@ function Photo10() {
       console.log(isInitialMount.current.toString());
     } else {
       console.log(isInitialMount.current.toString());
+      
       console.log("sseEndPoint changed");
-      console.log("SSE end point is: " + postRequestStateObject.information[0].sseEndpoint);
-
-      const source = new EventSource(postRequestStateObject.information[0].sseEndpoint);
-      source.onmessage = function logEvents(event) {
+      console.log(
+        "SSE end point is: " + postRequestStateObject.information[0].sseEndpoint
+      );
+      
+      sseSource= new EventSource(
+          postRequestStateObject.information[0].sseEndpoint
+        );
+  
+      sseSource.onmessage = function logEvents(event) {
         updateData(event.data);
+        sseSource.close();
         history.push("/paymentsuccess");
         isInitialMount.current = true;
       };
@@ -68,11 +77,11 @@ function Photo10() {
   };
 
   const override = css`
-  display: block;
-  margin: 0 auto;
-  border-color: red;
-`;
-let [color, setColor] = useState("#ffffff");
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+  `;
+  let [color, setColor] = useState("#ffffff");
 
   return (
     <div>
@@ -91,14 +100,12 @@ let [color, setColor] = useState("#ffffff");
 
             <CountdownCircleTimer
               onComplete={() => {
-                // do your stuff here
-                {
-                  //history.push("/");
-                }
+                sseSource.close();
+                history.push("/");
                 return [true, 1500]; // repeat animation in 1.5 seconds
               }}
               isPlaying
-              duration={10}
+              duration={20}
               colors={[
                 ["#004777", 0.33],
                 ["#F7B801", 0.33],

@@ -1,5 +1,6 @@
-import React from "react";
-
+import React, { useEffect, useState, useRef } from "react";
+import { Redirect } from "react-router";
+import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
@@ -15,15 +16,61 @@ function PaymentSuccess() {
   }));
 
   const classes = useStyles();
+  const history = useHistory();
+
+  // useEffect(() => {
+  //   console.log("On component mount, status is");
+  // }, []);
+
+  // useEffect(() => {
+  //   return () => {
+  //     console.log("On component unmount, status is");
+  //     setInitialMount(true);
+  //     console.log(initialMount);
+  //   };
+  // }, []);
+
+  // useEffect(() => {
+  //   if (ewan !== false) {
+  //     console.log("On change in status,");
+  //     // console.log(history.length);
+  //     console.log(ewan);
+  //     // history.push("/");
+  //     history.replace("/");
+  //   }
+  // }, [ewan]);
+
+  // const isInitialMountTT = useRef(true);
+  // useEffect(() => {
+  //   if (isInitialMountTT.current) {
+  //     isInitialMountTT.current = false;
+  //     console.log("Initial Mount here");
+  //     console.log(isInitialMountTT.current.toString());
+  //   } else {
+  //     console.log("Second Mount here");
+  //     console.log(isInitialMountTT.current.toString());
+  //     // history.push("/");
+  //     isInitialMountTT.current = true;
+  //   }
+  // }, [isInitialMountTT]);
+  // const state = { redirect: null };
+  // if (this.state.redirect) {
+  //   return <Redirect to={this.state.redirect} />
+  // }
 
   const renderTime = ({ remainingTime }) => {
     if (remainingTime === 0) {
-      return <div className="timer">Starting Photo Booth...</div>;
+      return <div className="timer">Starting...</div>;
     }
-
     return (
       <div className="timer">
+        <div className="text">
+          Payment success
+          <br />
+          redirecting in
+        </div>
         <div className="value">{remainingTime}</div>
+        <div className="text">seconds</div>
       </div>
     );
   };
@@ -42,8 +89,12 @@ function PaymentSuccess() {
           <Paper className="paymentSuccessRightPaper" variant="outlined" square>
             <h1>Payment Success</h1>
             <CountdownCircleTimer
+              onComplete={() => {
+                history.push("/");
+                return [true, 1500];
+              }}
               isPlaying
-              duration={5}
+              duration={10}
               colors={[
                 ["#004777", 0.33],
                 ["#F7B801", 0.33],

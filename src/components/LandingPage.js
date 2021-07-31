@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
@@ -20,6 +20,12 @@ function LandingPage() {
   }));
 
   const classes = useStyles();
+  const history = useHistory();
+
+  useEffect(() => {
+    console.log(history.length);
+    console.log("landing page first render");
+  }, []);
 
   return (
     <div className={classes.root}>
