@@ -5,58 +5,56 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import Link from "@material-ui/core/Link";
+import landing2strips from "../images/landing-2strips.png";
+import landing4strips from "../images/landing-4strips.png";
+import landing6strips from "../images/landing-6strips.png";
 
 function LandingPage() {
   const useStyles = makeStyles((theme) => ({
-    root: {
-      flexGrow: 1,
-    },
     paper: {
-      minHeight: "100%",
-      padding: theme.spacing(0),
+      flex: 1,
       textAlign: "center",
-      color: theme.palette.text.secondary,
     },
   }));
 
   const classes = useStyles();
-  const history = useHistory();
-
-  useEffect(() => {
-    console.log(history.length);
-    console.log("landing page first render");
-  }, []);
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={0}>
-        <Grid item xs={4} sm={4}>
-          <Paper className={classes.paper} variant="outlined" square>
-            <h1>Photo Strips</h1>
-            <Button variant="contained" color="primary">
-              <Link href="/photo10">SELECT</Link>
-            </Button>
-          </Paper>
+      <Grid container>
+        <Grid container item xs={6} className="landingLeft">
+          <Grid item xs={12} container={true}>
+            <Paper elevation={0} className={classes.paper}></Paper>
+          </Grid>
         </Grid>
-        <Grid item xs={4} sm={4}>
-          <Paper className={classes.paper} variant="outlined" square>
-            <h1>Photo Strips and GIF</h1>
-            <Button variant="contained" color="primary">
-              <Link href="/photogif12">
+        <Grid container item xs={6}>
+          <Grid item xs={12} square>
+            <Paper elevation={0} className={classes.paper}>
+              <img src={landing2strips} className="landingImage" />
+              <h1 className="landingPricing">$10</h1>
+              <a href="/gif2prints" className="landingSelect">
                 SELECT
-              </Link>
-            </Button>
-          </Paper>
-        </Grid>
-        <Grid item xs={4} sm={4}>
-          <Paper className={classes.paper} variant="outlined" square>
-            <h1>Photo Strips and Boomerang</h1>
-            <Button variant="contained" color="primary">
-              <Link href="/photoboomerang12">
+              </a>
+            </Paper>
+          </Grid>
+          <Grid item xs={12} className="landingMiddleGrid">
+            <Paper elevation={0} className={classes.paper}>
+              <img src={landing4strips} className="landingImage" />
+              <h1 className="landingPricing">$12</h1>
+              <a href="/gif4prints" className="landingSelect">
                 SELECT
-              </Link>
-            </Button>
-          </Paper>
+              </a>
+            </Paper>
+          </Grid>
+          <Grid item xs={12}>
+            <Paper elevation={0} className={classes.paper}>
+              <img src={landing6strips} className="landingImage" />
+              <h1 className="landingPricing">$14</h1>
+              <a href="/gif6prints" className="landingSelect">
+                SELECT
+              </a>
+            </Paper>
+          </Grid>
         </Grid>
       </Grid>
     </div>

@@ -8,52 +8,43 @@ import Link from "@material-ui/core/Link";
 import { css } from "@emotion/react";
 import ClipLoader from "react-spinners/ClipLoader";
 
-function Photo10() {
+function GIF4Prints() {
   const postRequestStateObject = useSelector(
     (state) => state.postRequestReducer
   );
 
   const dispatch = useDispatch();
   const history = useHistory();
-
-  const amount = "1000"; //Change here
+  const amount = "1200"; //Change here
   const dollarAmount = "$" + amount / 100;
+  const [data, updateData] = useState("Pending payment...");
+  const isInitialMount = useRef(true);
+  let sseSource = {};
 
   useEffect(() => {
+    console.log("initial mount")
+    console.log(isInitialMount)
     setTimeout(function () {
       dispatch(getOmiseQR(amount));
     }, 2000);
-    console.log(history.length);
-    console.log("Only render on first render");
-    //console.log("SSE end point is: " + postRequestStateObject.information[0].sseEndpoint);
   }, []);
 
-  const [data, updateData] = useState("Pending payment...");
-  let sseSource = {};
-
-  const isInitialMount = useRef(true);
   useEffect(() => {
     if (isInitialMount.current) {
       isInitialMount.current = false;
-      console.log("before here");
-      console.log(isInitialMount.current.toString());
     } else {
-      console.log(isInitialMount.current.toString());
-      
-      console.log("sseEndPoint changed");
       console.log(
         "SSE end point is: " + postRequestStateObject.information[0].sseEndpoint
       );
-      
-      sseSource= new EventSource(
-          postRequestStateObject.information[0].sseEndpoint
-        );
-  
+
+      sseSource = new EventSource(
+        postRequestStateObject.information[0].sseEndpoint
+      );
+
       sseSource.onmessage = function logEvents(event) {
         updateData(event.data);
         sseSource.close();
         history.push("/paymentsuccess");
-        isInitialMount.current = true;
       };
     }
   });
@@ -126,4 +117,4 @@ function Photo10() {
   );
 }
 
-export default Photo10;
+export default GIF4Prints;

@@ -2,9 +2,9 @@ import React from "react";
 import { Router, Switch } from "react-router-dom";
 
 import LandingPage from "./components/LandingPage";
-import Photo10 from "./components/Photo10";
-import PhotoGIF12 from "./components/PhotoGIF12";
-import PhotoBoomerang12 from "./components/PhotoBoomerang12";
+import GIF2Prints from "./components/GIF2Prints";
+import GIF4Prints from "./components/GIF4Prints";
+import GIF6Prints from "./components/GIF6Prints";
 import PaymentSuccess from "./components/PaymentSuccess";
 
 import DynamicLayout from "./router/DynamicLayout";
@@ -24,21 +24,21 @@ const App = () => {
           />
           <DynamicLayout
             exact
-            path="/photo10"
-            component={Photo10}
-            layout="PHOTO10_PAGE"
+            path="/gif2prints"
+            component={GIF2Prints}
+            layout="GIF2PRINTS_PAGE"
           />
           <DynamicLayout
             exact
-            path="/photogif12"
-            component={PhotoGIF12}
-            layout="PHOTOGIF12_PAGE"
+            path="/gif4prints"
+            component={GIF4Prints}
+            layout="GIF4PRINTS_PAGE"
           />
           <DynamicLayout
             exact
-            path="/photoboomerang12"
-            component={PhotoBoomerang12}
-            layout="PHOTOBOOMERANG12_PAGE"
+            path="/gif6prints"
+            component={GIF6Prints}
+            layout="GIF6PRINTS_PAGE"
           />
           <DynamicLayout
             exact

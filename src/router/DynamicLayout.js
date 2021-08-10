@@ -10,15 +10,15 @@ const DynamicLayout = (props) => {
       return <>{actualRouteComponent}</>;
     }
 
-    case "PHOTO10_PAGE": {
+    case "GIF2PRINTS_PAGE": {
       return <>{actualRouteComponent}</>;
     }
 
-    case "PHOTOGIF12_PAGE": {
+    case "GIF4PRINTS_PAGE": {
       return <>{actualRouteComponent}</>;
     }
 
-    case "PHOTOBOOMERANG12_PAGE": {
+    case "GIF6PRINTS_PAGE": {
       return <>{actualRouteComponent}</>;
     }
 
