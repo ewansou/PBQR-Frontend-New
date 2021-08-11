@@ -64,3 +64,89 @@ body {
   display: block;
   text-align: center;
 }
+
+.makePaymentLeft {
+  background-color: #f26522;
+  height: 100vh;
+}
+
+.makePaymentInstruction {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0px;
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 40px;
+}
+
+.makePaymentStatus {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: #f26522;
+  font-weight: 700;
+  font-size: 40px;
+}
+
+.makePaymentQRCode {
+  display: block;
+  margin: 0 auto;
+  width: 40%;
+}
+
+.makePaymentQRDiv {
+  display: block;
+  width: 100%;
+}
+
+.makePaymentBackButton {
+  margin: 0 auto;
+  text-align: center;
+  background-color: #e3e3e3;
+  font-weight: 700;
+  color: #000000;
+  padding: 16px;
+  font-size: 55px;
+  width: 250px;
+  border-radius: 15px;
+  display: block;
+  text-decoration: none;
+}
+
+.makePaymentInText {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+  margin: 0px;
+}
+
+.makePaymentInText > div {
+  position: relative;
+  display: block;
+  margin-top: 5px;
+  font-weight: 700;
+  font-size: 30px;
+  width: auto !important;
+  height: auto !important;
+}
+
+.makePaymentAmount {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: #f26522;
+  font-weight: 700;
+  font-size: 50px;
+  margin-top: 10px;
+}
+
+.makePaymentTimer {
+  width: 100%;
+}
+
+.makePaymentMainDiv {
+  display: block;
+  width: 100%;
+}
