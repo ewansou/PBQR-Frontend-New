@@ -4,13 +4,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import { useSelector, useDispatch } from "react-redux";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import { getOmiseQR } from "../actions/getQRimage";
-import { Typography } from "@material-ui/core";
-import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
-import Link from "@material-ui/core/Link";
 import { css } from "@emotion/react";
 import ClipLoader from "react-spinners/ClipLoader";
+import TwoStrips from "../images/makePayment2strips.png";
 
 function GIF2Prints() {
   const useStyles = makeStyles((theme) => ({
@@ -37,9 +34,12 @@ function GIF2Prints() {
   useEffect(() => {
     console.log("initial mount");
     console.log(isInitialMount);
-    setTimeout(function () {
-      dispatch(getOmiseQR(amount));
-    }, 2000);
+    dispatch(getOmiseQR(amount));
+
+    // setTimeout(function () {
+    //   dispatch(getOmiseQR(amount));
+    // }, 2000);
+
   }, []);
 
   useEffect(() => {
@@ -78,8 +78,10 @@ function GIF2Prints() {
     display: block;
     margin: 0 auto;
     border-color: #f26522;
+    margin-top: 30vh;
+    width: 200px;
+    height: 200px;
   `;
-  let [color, setColor] = useState("#ffffff");
 
   const style = {
     height: "80vh",
@@ -91,13 +93,20 @@ function GIF2Prints() {
       <Grid container>
         <Grid container item xs={6} className="makePaymentLeft">
           <Grid item xs={12} container={true}>
-            <Paper elevation={0}></Paper>
+            <div className="makePaymentLeftDiv">
+              <h1 className="makePaymentLeftTitle">2 Bookmark Printouts</h1>
+              <span>with softcopies emailing</span>
+              <img
+                src={TwoStrips}
+                className="makePaymentLeft2BookmarkPrintoutsImage"
+              />
+            </div>
           </Grid>
         </Grid>
         <Grid container item xs={6}>
           <Grid item xs={12} container={true} style={style}>
             {postRequestStateObject.isLoading ? (
-              <ClipLoader color={color} css={override} size={150} />
+              <ClipLoader css={override} />
             ) : (
               postRequestStateObject.information[0] && (
                 <div className="makePaymentMainDiv">
@@ -119,7 +128,7 @@ function GIF2Prints() {
                           return [true, 1500]; // repeat animation in 1.5 seconds
                         }}
                         isPlaying
-                        duration={120}
+                        duration={180}
                         size={0}
                         colors="#F26522"
                       >
@@ -143,46 +152,6 @@ function GIF2Prints() {
         </Grid>
       </Grid>
     </div>
-
-    // <div>
-    //   <p>Photo</p>
-    //   <p>Paying amount: {dollarAmount}</p>
-
-    // {postRequestStateObject.isLoading ? (
-    //   <ClipLoader color={color} css={override} size={150} />
-    // ) : (
-    //   postRequestStateObject.information[0] && (
-    //     <div>
-    //       <p>{postRequestStateObject.information[0].chargeID}</p>
-    //       <p>{postRequestStateObject.information[0].sseEndpoint}</p>
-    //       <p>{postRequestStateObject.isLoading.toString()}</p>
-    //       <img src={postRequestStateObject.information[0].imageURL} />
-
-    //       <CountdownCircleTimer
-    //         onComplete={() => {
-    //           sseSource.close();
-    //           history.push("/");
-    //           return [true, 1500]; // repeat animation in 1.5 seconds
-    //         }}
-    //         isPlaying
-    //         duration={20}
-    //         colors={[
-    //           ["#004777", 0.33],
-    //           ["#F7B801", 0.33],
-    //           ["#A30000", 0.33],
-    //         ]}
-    //       >
-    //         {renderTime}
-    //       </CountdownCircleTimer>
-    //     </div>
-    //   )
-    // )}
-
-    //   <div>{data}</div>
-    //   <Button variant="contained" color="primary">
-    //     <Link href="/">BACK TO HOME</Link>
-    //   </Button>
-    // </div>
   );
 }
 

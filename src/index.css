@@ -8,6 +8,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/*LANDING PAGE*/
+
 .landingLeft {
   height: 100vh;
   border-right: 1px solid #e3e3e3;
@@ -49,25 +51,48 @@ body {
   border-bottom: 1px solid #e3e3e3;
 }
 
-.paymentSuccessLeftPaper {
-  background-color: #f26522 !important;
-  display: block;
-  height: 100vh;
-}
+/*END LANDING PAGE*/
 
-.paymentSuccessRightPaper {
-  display: block;
-  height: 100vh;
-}
-
-.paymentSuccessRightPaper h1 {
-  display: block;
-  text-align: center;
-}
+/*MAKE PAYMENT PAGE*/
 
 .makePaymentLeft {
   background-color: #f26522;
   height: 100vh;
+}
+
+.makePaymentLeftDiv {
+  width: 100%;
+  margin: 250px 0px;
+}
+
+.makePaymentLeftTitle {
+  color: #ffffff;
+  font-size: 70px;
+  text-align: center;
+  font-weight: 700;
+  display: block;
+  margin: 0 auto;
+}
+
+.makePaymentLeftDiv span {
+  display: block;
+  text-align: center;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 55px;
+}
+
+.makePaymentLeft2BookmarkPrintoutsImage,
+.makePaymentLeft4BookmarkPrintoutsImage,
+.makePaymentLeft6BookmarkPrintoutsImage {
+  width: 70%;
+  display: block;
+  margin: 50px auto 0 auto;
+}
+
+.makePaymentMainDiv {
+  display: block;
+  width: 100%;
 }
 
 .makePaymentInstruction {
@@ -89,29 +114,9 @@ body {
   font-size: 40px;
 }
 
-.makePaymentQRCode {
-  display: block;
-  margin: 0 auto;
-  width: 40%;
-}
-
 .makePaymentQRDiv {
   display: block;
   width: 100%;
-}
-
-.makePaymentBackButton {
-  margin: 0 auto;
-  text-align: center;
-  background-color: #e3e3e3;
-  font-weight: 700;
-  color: #000000;
-  padding: 16px;
-  font-size: 55px;
-  width: 250px;
-  border-radius: 15px;
-  display: block;
-  text-decoration: none;
 }
 
 .makePaymentInText {
@@ -132,6 +137,12 @@ body {
   height: auto !important;
 }
 
+.makePaymentQRCode {
+  display: block;
+  margin: 0 auto;
+  width: 40%;
+}
+
 .makePaymentAmount {
   display: block;
   width: 100%;
@@ -142,11 +153,37 @@ body {
   margin-top: 10px;
 }
 
-.makePaymentTimer {
-  width: 100%;
+.makePaymentBackButton {
+  margin: 0 auto;
+  text-align: center;
+  background-color: #e3e3e3;
+  font-weight: 700;
+  color: #000000;
+  padding: 16px;
+  font-size: 55px;
+  width: 250px;
+  border-radius: 15px;
+  display: block;
+  text-decoration: none;
+}
+/*END MAKE PAYMENT PAGE*/
+
+/*PAYMENT SUCCESS PAGE*/
+
+.paymentSuccessLeftPaper {
+  background-color: #f26522 !important;
+  display: block;
+  height: 100vh;
 }
 
-.makePaymentMainDiv {
+.paymentSuccessRightPaper {
   display: block;
-  width: 100%;
+  height: 100vh;
 }
+
+.paymentSuccessRightPaper h1 {
+  display: block;
+  text-align: center;
+}
+
+/*END PAYMENT SUCCESS PAGE*/
