@@ -1,8 +1,19 @@
 {
-  "name": "frontend",
+  "name": "PBQR",
   "version": "0.1.0",
-  "proxy": "https://pbqr-server.herokuapp.com/api/",
+  "author": "Ewan Sou, Instantly Singapore Pte Ltd",
+  "description": "Artbox Eatbox PBQR web app",
+  "main": "public/electron.js",
+  "homepage": "./",
   "private": true,
+  "devDependencies": {
+    "concurrently": "^6.2.1",
+    "cross-env": "^7.0.3",
+    "electron": "^9.4.4",
+    "electron-builder": "^22.11.7",
+    "nodemon": "^2.0.0",
+    "wait-on": "^6.0.0"
+  },
   "dependencies": {
     "@emotion/react": "^11.4.0",
     "@material-ui/core": "^4.12.1",
@@ -11,6 +22,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
+    "electron-is-dev": "^2.0.0",
     "react": "^17.0.2",
     "react-countdown-circle-timer": "^2.5.3",
     "react-dom": "^17.0.2",
@@ -25,7 +37,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron-dev": "concurrently \"cross-env BROWSER=none npm start\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron-pack": "electron-builder -c.extraMetadata.main=build/electron.js",
+    "preelectron-pack": "react-scripts build"
   },
   "eslintConfig": {
     "extends": [

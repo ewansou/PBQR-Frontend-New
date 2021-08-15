@@ -22,7 +22,15 @@ const DynamicLayout = (props) => {
       return <>{actualRouteComponent}</>;
     }
 
-    case "PAYMENTSUCCESS_PAGE": {
+    case "PAYMENTSUCCESSGIF2_PAGE": {
+      return <>{actualRouteComponent}</>;
+    }
+
+    case "PAYMENTSUCCESSGIF4_PAGE": {
+      return <>{actualRouteComponent}</>;
+    }
+
+    case "PAYMENTSUCCESSGIF6_PAGE": {
       return <>{actualRouteComponent}</>;
     }
 

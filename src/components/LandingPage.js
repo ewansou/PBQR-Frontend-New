@@ -25,11 +25,11 @@ function LandingPage() {
           </Grid>
         </Grid>
         <Grid container item xs={6}>
-          <Grid item xs={12} square>
+          <Grid item xs={12}>
             <Paper elevation={0} className={classes.paper}>
               <img src={landing2strips} className="landingImage" />
               <h1 className="landingPricing">$10</h1>
-              <a href="/gif2prints" className="landingSelect">
+              <a href="#/gif2prints" className="landingSelect">
                 SELECT
               </a>
             </Paper>
@@ -38,7 +38,7 @@ function LandingPage() {
             <Paper elevation={0} className={classes.paper}>
               <img src={landing4strips} className="landingImage" />
               <h1 className="landingPricing">$12</h1>
-              <a href="/gif4prints" className="landingSelect">
+              <a href="#/gif4prints" className="landingSelect">
                 SELECT
               </a>
             </Paper>
@@ -47,7 +47,7 @@ function LandingPage() {
             <Paper elevation={0} className={classes.paper}>
               <img src={landing6strips} className="landingImage" />
               <h1 className="landingPricing">$14</h1>
-              <a href="/gif6prints" className="landingSelect">
+              <a href="#/gif6prints" className="landingSelect">
                 SELECT
               </a>
             </Paper>

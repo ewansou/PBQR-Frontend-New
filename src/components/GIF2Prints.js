@@ -39,7 +39,6 @@ function GIF2Prints() {
     // setTimeout(function () {
     //   dispatch(getOmiseQR(amount));
     // }, 2000);
-
   }, []);
 
   useEffect(() => {
@@ -57,7 +56,7 @@ function GIF2Prints() {
       sseSource.onmessage = function logEvents(event) {
         updateData(event.data);
         sseSource.close();
-        history.push("/paymentsuccess");
+        history.push("/paymentsuccessgif2");
       };
     }
   });
@@ -117,6 +116,9 @@ function GIF2Prints() {
                     Scan the QR code below to make
                   </p>
                   <p className="makePaymentInstruction">payment via PayNow</p>
+                  <p className="makePaymentWarning">
+                    * DO NOT CHANGE the payment amount
+                  </p>
                   <h3 className="makePaymentStatus">Status: {data}</h3>
                   <div className="makePaymentQRDiv">
                     <p className="makePaymentInText">
@@ -142,6 +144,10 @@ function GIF2Prints() {
                     />
                   </div>
                   <p className="makePaymentAmount">Amount: {dollarAmount}</p>
+                  <p className="makePaymentBackWarning">
+                    * DO NOT touch the Back button after you've scanned and made
+                    payment
+                  </p>
                   <a href="/" className="makePaymentBackButton">
                     BACK
                   </a>
