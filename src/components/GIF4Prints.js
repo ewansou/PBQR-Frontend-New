@@ -61,6 +61,11 @@ function GIF4Prints() {
     }
   });
 
+  function goBackMenu() {
+    sseSource.close();
+    history.push("/");
+  }
+
   const renderTime = ({ remainingTime }) => {
     if (remainingTime === 0) {
       return <div className="timer">Redirecting back...</div>;
@@ -148,9 +153,12 @@ function GIF4Prints() {
                     * DO NOT touch the Back button after you've scanned and made
                     payment
                   </p>
-                  <a href="/" className="makePaymentBackButton">
+                  <button
+                    onClick={goBackMenu}
+                    className="makePaymentBackButton"
+                  >
                     BACK
-                  </a>
+                  </button>
                 </div>
               )
             )}

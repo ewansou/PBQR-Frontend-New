@@ -6,6 +6,10 @@
   "main": "public/electron.js",
   "homepage": "./",
   "private": true,
+  "build": {
+    "appId": "instantlysg-pbqr",
+    "artifactName": "PBQR-SetUp-${version}.${ext}"
+  },
   "devDependencies": {
     "concurrently": "^6.2.1",
     "cross-env": "^7.0.3",

@@ -186,6 +186,7 @@ body {
   border-radius: 15px;
   display: block;
   text-decoration: none;
+  border: none;
 }
 /*END MAKE PAYMENT PAGE*/
 
@@ -224,10 +225,10 @@ body {
 
 .paymentSuccessGIF2CountDown > div {
   position: relative;
-  left: 45px!important;
+  left: 45px !important;
 }
 
-.paymentSuccessGIF2LogoDiv{
+.paymentSuccessGIF2LogoDiv {
   display: inline-block;
   position: relative;
   top: 90px;
@@ -283,10 +284,10 @@ body {
 
 .paymentSuccessGIF4CountDown > div {
   position: relative;
-  left: 45px!important;
+  left: 45px !important;
 }
 
-.paymentSuccessGIF4LogoDiv{
+.paymentSuccessGIF4LogoDiv {
   display: inline-block;
   position: relative;
   top: 90px;
@@ -342,10 +343,10 @@ body {
 
 .paymentSuccessGIF6CountDown > div {
   position: relative;
-  left: 45px!important;
+  left: 45px !important;
 }
 
-.paymentSuccessGIF6LogoDiv{
+.paymentSuccessGIF6LogoDiv {
   display: inline-block;
   position: relative;
   top: 90px;
