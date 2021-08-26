@@ -175,7 +175,7 @@ body {
 }
 
 .makePaymentBackButton {
-  margin: 0 auto;
+  margin: 50px auto 0 auto;
   text-align: center;
   background-color: #e3e3e3;
   font-weight: 700;

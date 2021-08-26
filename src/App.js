@@ -1,5 +1,5 @@
 import React from "react";
-import { Router, Switch, Route } from "react-router-dom";
+import { Router, Switch } from "react-router-dom";
 
 import LandingPage from "./components/LandingPage";
 import GIF2Prints from "./components/GIF2Prints";

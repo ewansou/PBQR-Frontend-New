@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import { revertToInitialState } from "../actions/revertToInitialState";
+import LandingPageCarousel from "./Carousel";
 import landing2strips from "../images/landing-2strips.png";
 import landing4strips from "../images/landing-4strips.png";
 import landing6strips from "../images/landing-6strips.png";
@@ -28,7 +29,9 @@ function LandingPage() {
       <Grid container>
         <Grid container item xs={6} className="landingLeft">
           <Grid item xs={12} container={true}>
-            <Paper elevation={0} className={classes.paper}></Paper>
+            <Paper elevation={0} className={classes.paper}>
+              <LandingPageCarousel />
+            </Paper>
           </Grid>
         </Grid>
         <Grid container item xs={6}>
