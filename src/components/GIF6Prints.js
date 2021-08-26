@@ -32,8 +32,7 @@ function GIF6Prints() {
   let sseSource = {};
 
   useEffect(() => {
-    console.log("initial mount");
-    console.log(isInitialMount);
+    console.log("Initial mount for $14");
     dispatch(getOmiseQR(amount));
 
     // setTimeout(function () {
@@ -63,6 +62,11 @@ function GIF6Prints() {
 
   function goBackMenu() {
     sseSource.close();
+    console.log(
+      "SSE for $14: " +
+        postRequestStateObject.information[0].sseEndpoint +
+        " is closed"
+    );
     history.push("/");
   }
 
@@ -121,8 +125,8 @@ function GIF6Prints() {
                     Scan the QR code below to make
                   </p>
                   <p className="makePaymentInstruction">payment via PayNow</p>
-                  <p className="makePaymentWarning">
-                    * DO NOT CHANGE the payment amount
+                  <p className="makePaymentRef">
+                    Ref: {postRequestStateObject.information[0].chargeID}
                   </p>
                   <h3 className="makePaymentStatus">Status: {data}</h3>
                   <div className="makePaymentQRDiv">

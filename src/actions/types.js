@@ -1,1 +1,2 @@
 export const GET_OMISE_QR = "GET_OMISE_QR";
+export const REVERT_TO_INITIAL_STATE = "REVERT_TO_INITIAL_STATE";

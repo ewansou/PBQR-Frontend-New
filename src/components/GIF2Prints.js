@@ -32,8 +32,7 @@ function GIF2Prints() {
   let sseSource = {};
 
   useEffect(() => {
-    console.log("initial mount");
-    console.log(isInitialMount);
+    console.log("Initial mount for $10");
     dispatch(getOmiseQR(amount));
 
     // setTimeout(function () {
@@ -46,7 +45,7 @@ function GIF2Prints() {
       isInitialMount.current = false;
     } else {
       console.log(
-        "SSE end point is: " + postRequestStateObject.information[0].sseEndpoint
+        "SSE end point ($10) is: " + postRequestStateObject.information[0].sseEndpoint
       );
 
       sseSource = new EventSource(
@@ -56,13 +55,18 @@ function GIF2Prints() {
       sseSource.onmessage = function logEvents(event) {
         updateData(event.data);
         sseSource.close();
-        history.push("/paymentsuccessgif2");
+        history.push("/paymentsuccessgif2"); 
       };
     }
-  });
+  }, [postRequestStateObject]);
 
   function goBackMenu() {
     sseSource.close();
+    console.log(
+      "SSE for $10: " +
+        postRequestStateObject.information[0].sseEndpoint +
+        " is closed"
+    );
     history.push("/");
   }
 
@@ -121,8 +125,8 @@ function GIF2Prints() {
                     Scan the QR code below to make
                   </p>
                   <p className="makePaymentInstruction">payment via PayNow</p>
-                  <p className="makePaymentWarning">
-                    * DO NOT CHANGE the payment amount
+                  <p className="makePaymentRef">
+                    Ref: {postRequestStateObject.information[0].chargeID}
                   </p>
                   <h3 className="makePaymentStatus">Status: {data}</h3>
                   <div className="makePaymentQRDiv">
