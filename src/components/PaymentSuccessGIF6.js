@@ -20,6 +20,7 @@ function PaymentSuccessGIF6() {
 
   return (
     <div className="paymentSuccessGIF6Div">
+      <div className="paymentSuccessGIF6ColorBlock"></div>
       <h1 className="paymentSuccessGIF6Text">PAYMENT SUCCESS</h1>
       <h1 className="paymentSuccessGIF6ThankYou">THANK YOU</h1>
       <h1 className="paymentSuccessGIF6Message">
@@ -32,7 +33,7 @@ function PaymentSuccessGIF6() {
             return [true, 1500];
           }}
           isPlaying
-          duration={20} //20 seconds
+          duration={5} //20 seconds
           size={0}
           colors="#e3e3e3"
         >

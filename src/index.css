@@ -74,6 +74,17 @@ body {
   margin: 0 auto;
 }
 
+.makePaymentGeneratingQR {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  font-size: 25px;
+  font-weight: 700;
+  position: relative;
+  top: 50px;
+  left: 190px;
+}
+
 .makePaymentLeftDiv span {
   display: block;
   text-align: center;
@@ -196,13 +207,23 @@ body {
   margin: 50px 0px;
 }
 
+.paymentSuccessGIF2ColorBlock {
+  width: 5px;
+  height: 5px;
+  display: inline-block;
+  background: #f8aaaa;
+  position: relative;
+  bottom: 55px;
+  left: 5px;
+}
+
 .paymentSuccessGIF2Text {
   font-size: 120px;
   display: block;
   text-align: center;
   margin-top: 0px;
   margin-bottom: 10px;
-  margin-top: 235px;
+  margin-top: 150px;
 }
 
 .paymentSuccessGIF2ThankYou {
@@ -255,20 +276,30 @@ body {
   margin: 50px 0px;
 }
 
+.paymentSuccessGIF4ColorBlock {
+  width: 5px;
+  height: 5px;
+  display: inline-block;
+  background: #afffb6;
+  position: relative;
+  bottom: 55px;
+  left: 5px;
+}
+
 .paymentSuccessGIF4Text {
   font-size: 120px;
   display: block;
   text-align: center;
   margin-top: 0px;
   margin-bottom: 10px;
-  margin-top: 235px;
-  color: #f26522;
+  margin-top: 150px;
 }
 
 .paymentSuccessGIF4ThankYou {
   font-size: 200px;
   display: block;
   text-align: center;
+  color: #f26522;
   margin-top: 0px;
   margin-bottom: 10px;
 }
@@ -314,22 +345,32 @@ body {
   margin: 50px 0px;
 }
 
+.paymentSuccessGIF6ColorBlock {
+  width: 5px;
+  height: 5px;
+  display: inline-block;
+  background: #b2ccfd;
+  position: relative;
+  bottom: 55px;
+  left: 5px;
+}
+
 .paymentSuccessGIF6Text {
   font-size: 120px;
   display: block;
   text-align: center;
   margin-top: 0px;
   margin-bottom: 10px;
-  margin-top: 235px;
+  margin-top: 150px;
 }
 
 .paymentSuccessGIF6ThankYou {
   font-size: 200px;
   display: block;
   text-align: center;
+  color: #f26522;
   margin-top: 0px;
   margin-bottom: 10px;
-  color: #f26522;
 }
 
 .paymentSuccessGIF6Message {
@@ -363,7 +404,6 @@ body {
   display: inline-block;
   font-weight: 700;
   font-size: 35px;
-  color: #f26522;
 }
 
 /*END PAYMENT SUCCESS GIF 6 PAGE*/

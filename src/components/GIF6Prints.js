@@ -83,12 +83,13 @@ function GIF6Prints() {
   };
 
   const override = css`
-    display: block;
     margin: 0 auto;
     border-color: #f26522;
     margin-top: 30vh;
     width: 200px;
     height: 200px;
+    position: relative;
+    left: 330px;
   `;
 
   const style = {
@@ -114,7 +115,12 @@ function GIF6Prints() {
         <Grid container item xs={6}>
           <Grid item xs={12} container={true} style={style}>
             {postRequestStateObject.isLoading ? (
-              <ClipLoader css={override} />
+              <div>
+                <ClipLoader css={override} />
+                <p className="makePaymentGeneratingQR">
+                  Please hold on. Generating payment QR ...
+                </p>
+              </div>
             ) : (
               postRequestStateObject.information[0] && (
                 <div className="makePaymentMainDiv">
