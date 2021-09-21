@@ -1,6 +1,6 @@
 {
   "name": "PBQR",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Ewan Sou, Instantly Singapore Pte Ltd",
   "description": "Artbox Eatbox PBQR web app",
   "main": "public/electron.js",
